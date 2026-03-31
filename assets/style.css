@@ -1,27 +1,77 @@
- body {
-      background: #0a0a0f;
-      color: #e2e2f0;
-      font-family: sans-serif;
-      
-    }
+body {
+  background: #0a0a0f;
+  color: #e2e2f0;
+  font-family: 'Inter', sans-serif; /* Modern sans-serif works best for this */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+.hero {
+  min-height: 80vh; /* More vertical space */
+  padding: 10% 8%; /* Large, editorial-style padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 
+.greeting h1 {
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive typography */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  max-width: 900px;
+}
 
-    h2 { font-size: 2rem; margin-bottom: 1rem; }
-    p  { color: #888; font-size: 1.1rem; }
+.list {
+  margin-top: 2rem;
+  max-width: 700px;
+  text-decoration: none;
+}
 
-    .hero{
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;;
-      align-items: flex-start;
-      height: 100vh;
-      margin: 0;
-      text-align: left;
-      gap: 5px;
+.list p {
+  color: #888;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
 
-    }
-    
+.decodLoad {
+  margin-top: 1rem;
+  height: 24px; /* Prevents layout jump */
+}
+
+#decoding-progress {
+  font-family: monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #555;
+  margin: 0;
+}
+
+/* Button Styling */
+button {
+  background: transparent;
+  color: #00f5c8;
+  border: 1px solid #00f5c8;
+  padding: 12px 30px;
+  font-family: monospace;
+  font-size: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+button:hover:not(:disabled) {
+  background: rgba(0, 245, 200, 0.1);
+  box-shadow: 0 0 15px rgba(0, 245, 200, 0.2);
+}
+
+button:disabled {
+  border-color: #333;
+  color: #333;
+}
   .highlight_blue {
   color: #00f5c8;
   transition: all 0.3s ease;
@@ -33,12 +83,29 @@
   border-bottom: 1px solid #00f5c8;
 }
 
-/* Position the links at the bottom */
-.fade-in-links {
-  position: absolute;
-  bottom: 40px;
-  display: flex;
-  gap: 2rem;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards 1s; /* Delays appearance until after scramble */
+.highlight_blue, 
+#decoding-progress {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  /* This ensures 'W' and 'i' take up the same space */
+}
+  
+a:link {
+ 
+  text-decoration: none;
+}
+a:visited {
+  color: #91058e;
+  text-decoration: none;
+}
+
+/* Hover effect */
+a:hover {
+  color: #0fc3d7; /* brighter blue */
+  text-decoration: none;
+}
+
+/* While clicking */
+a:active {
+  color: #34c0d8; /* lighter blue */
+  text-decoration: none;
 }
