@@ -1,9 +1,9 @@
 const linkData = [
-    { id: 'scramble-text-1', text: 'CV / Resume', url: '#' },
-    { id: 'scramble-text-2', text: 'Professional About', url: '#' },
-    { id: 'scramble-text-3', text: 'Project Gallery', url: '#' },
+    { id: 'scramble-text-1', text: 'Resume', url:'pages/Resume.html' },
+    { id: 'scramble-text-2', text: 'About', url: '#' },
+    { id: 'scramble-text-3', text: 'Projects', url: '#' },
     { id: 'scramble-text-4', text: 'Personal About', url: '#' },
-    { id: 'scramble-text-5', text: 'Skills / Services', url: '#' }
+    { id: 'scramble-text-5', text: 'Skills', url: '#' }
 ];
 
 const decodingMessages = ["Decoding In progress", "Decoding In progress.", "Decoding In progress..", "Decoding In progress...", "Decoded"];
@@ -11,7 +11,7 @@ const chars = '!<>-_\\/[]{}—=+*^?#________';
 
 let clickCount = 0;
 
-console.log("Hieee I also do Cyber-Security")
+console.log("Hieee I also do Cyber-Security, and web dev on the side")
 
 function descramble(elementId, finalText, onComplete) {
     const el = document.getElementById(elementId);
@@ -31,12 +31,12 @@ function descramble(elementId, finalText, onComplete) {
             }
         }
 
-        el.innerText = output;
+        el.innerHTML = output;
 
         // Update the Loading message based on local animation progress
         const progress = complete / finalText.length;
         const msgIndex = Math.floor(progress * (decodingMessages.length - 1));
-        decodeEl.innerText = decodingMessages[msgIndex];
+        decodeEl.innerHTML = decodingMessages[msgIndex];
 
         if (complete < finalText.length) {
             currentFrame++;
