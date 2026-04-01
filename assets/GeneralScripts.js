@@ -49,31 +49,51 @@ function descramble(elementId, finalText, onComplete) {
 }
 
 // Button Interaction
-const decodeBtn = document.querySelector('button');
+const decodeBtn = document.getElementById('decode-btn');
 
-decodeBtn.addEventListener('click', () => {
-    if (clickCount < linkData.length) {
-        const data = linkData[clickCount];
-        const el = document.getElementById(data.id);
-        
-        // Disable button during animation to prevent overlap
-        decodeBtn.disabled = true;
-
-        descramble(data.id, data.text, () => {
-            el.innerHTML = `<a href="${data.url}" class="decoded-link">${data.text}</a>`;
-            clickCount++;
+if (decodeBtn) {
+    decodeBtn.addEventListener('click', () => {
+        if (clickCount < linkData.length) {
+            const data = linkData[clickCount];
+            const el = document.getElementById(data.id);
             
-            if (clickCount < linkData.length) {
-                decodeBtn.disabled = false;
-                decodeBtn.innerText = `Decode Link ${clickCount + 1}`;
-            } else {
-                decodeBtn.innerText = "System Fully Decoded";
-            }
-        });
+            // Disable button during animation to prevent overlap
+            decodeBtn.disabled = true;
+
+            descramble(data.id, data.text, () => {
+                el.innerHTML = `<a href="${data.url}" class="decoded-link">${data.text}</a>`;
+                clickCount++;
+                
+                if (clickCount < linkData.length) {
+                    decodeBtn.disabled = false;
+                    decodeBtn.innerText = `Decode Link ${clickCount + 1}`;
+                } else {
+                    decodeBtn.innerText = "System Fully Decoded";
+                }
+            });
+        }
+    });
+}
+const toggle = document.getElementById('theme-toggle');
+
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    const html = document.documentElement;
+
+    if (html.getAttribute('data-theme') === 'light') {
+      html.removeAttribute('data-theme');
+      toggle.innerText = 'Light Mode';
+    } else {
+      html.setAttribute('data-theme', 'light');
+      toggle.innerText = 'Dark Mode';
     }
-});
+  });
+}
 
 // Initial sequence
 window.onload = () => {
+  const welcomeEl = document.getElementById('scramble-text-welcome');
+  if (welcomeEl) {
     descramble('scramble-text-welcome', 'Denzel Joshua Moffat');
+  }
 };
