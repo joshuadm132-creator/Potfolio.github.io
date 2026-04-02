@@ -2,7 +2,7 @@ const linkData = [
     { id: 'scramble-text-1', text: 'Resume', url:'pages/Resume.html' },
     { id: 'scramble-text-2', text: 'About', url: '#' },
     { id: 'scramble-text-3', text: 'Projects', url: 'pages/projects.html' },
-    { id: 'scramble-text-4', text: 'Personal', url: '#' },
+
     { id: 'scramble-text-5', text: 'Skills', url: '#' }
 ];
 
