@@ -207,3 +207,45 @@ if (decodeAllBtn) {
     });
   });
 }
+
+let currentSketch = null;
+function loadDemo(projectUrl, title) {
+    const stage = document.getElementById('demo-stage');
+    const wrapper = document.getElementById('p5-canvas-wrapper');
+    const titleEl = document.getElementById('demo-title');
+
+    if (!stage || !wrapper) return;
+
+    // 1. Reveal and Title
+    stage.style.display = 'block';
+    titleEl.innerText = title;
+
+    // 2. Inject the Iframe
+    // We use loading="lazy" for performance and allow="camera" for your AI filters
+    wrapper.innerHTML = `
+        <iframe 
+            src="${projectUrl}" 
+            title="${title}"
+            style="width: 100%; height: 600px; border: 1px solid #1a1a2e; background: #000;"
+            allow="camera; microphone; display-capture" 
+            loading="lazy">
+        </iframe>`;
+
+    // 3. Smooth Scroll to the demo
+    stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeDemo() {
+    const stage = document.getElementById('demo-stage');
+    const wrapper = document.getElementById('p5-canvas-wrapper');
+
+    // 1. Wipe the iframe out of the DOM to stop all code execution
+    if (wrapper) {
+        wrapper.innerHTML = ''; 
+    }
+
+    // 2. Hide the section
+    if (stage) {
+        stage.style.display = 'none';
+    }
+}

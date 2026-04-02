@@ -93,3 +93,18 @@
   background: var(--accent);
   color: var(--bg);
 }
+
+.demo-container {
+    padding: 4rem 8%;
+    border-top: 1px solid var(--border);
+    background: #031415; /* Slightly different black for depth */
+    width: 100%;
+    text-align: center;
+}
+
+#p5-canvas-wrapper canvas {
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 20px rgba(0, 245, 200, 0.2);
+    max-width: 100%; /* Responsive scaling */
+    height: auto !important;
+}
