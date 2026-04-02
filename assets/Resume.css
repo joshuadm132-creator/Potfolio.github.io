@@ -7,6 +7,7 @@
   --text:      #e2e2f0;
   --text-muted: #b4c0cd;
   --accent:    #00f5c8;
+  --txtb: #e6e7f3;
   /* ── LIGHT MODE ── */
 
 }[data-theme="light"] {
@@ -16,6 +17,7 @@
   --text:       #111118;
   --text-muted: #555;
   --accent:     #008c72;
+   --txtb: #091b1b;
 }
 /* ── RESET ── */
 * {

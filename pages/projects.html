@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Denzel Joshua Moffat</title>
+  <link rel="stylesheet" href="..\/assets/Portfolio.css">
+  <link rel="stylesheet" href="..\/assets/Resume.css">
+ 
+</head>
+<body>
+
+ <nav>
+    <a href="../index.html">Home</a>
+    <ul>
+      
+      <li><a href="Resume.html">Resume</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+    </ul>
+    <button id="theme-toggle">Light Mode</button>
+  </nav>
+
+
+  <main>
+
+    <header>
+      <div>
+      <h1>Projects</h1>
+      <p>A collection of games, visualisations, and experiments.</p>
+    </div>
+
+      <button id="decode-all-btn">Decode All Projects</button>
+    </header>
+
+    <!-- PROJECT GRID -->
+    <div class="projects-grid">
+
+      <!-- project-card 1 -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-card-category">JS Game</span>
+          <span class="project-card-status status-wip">Mostly Finished</span>
+        </div>
+        <h2 id="card-title-1" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</h2>
+        <p id="card-desc-1" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</p>
+        <div class="project-card-tags">
+          <span>JavaScript</span>
+          <span>p5.js</span>
+          <span>Matter.js</span>
+        </div>
+        <div class="project-card-skills">
+          <h4>Skills Learned</h4>
+          <p>Physics engines, collision detection, game loops, vector mathematics</p>
+        </div>
+        <div class="project-card-links">
+          <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <a href="../demos/pool-table.html" onclick="event.stopPropagation()">Live Demo</a>
+          <button class="decode-card-btn" data-card="1">Decode</button>
+        </div>
+      </div>
+
+      <!-- project-card 2 -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-card-category">JS Design</span>
+          <span class="project-card-status status-done">Finished</span>
+        </div>
+        <h2 id="card-title-2" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</h2>
+        <p id="card-desc-2" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</p>
+        <div class="project-card-tags">
+          <span>JavaScript</span>
+          <span>p5.js</span>
+          <span>Web Audio API</span>
+        </div>
+        <div class="project-card-skills">
+          <h4>Skills Learned</h4>
+          <p>Audio processing, FFT analysis, real-time data visualisation, file handling</p>
+        </div>
+        <div class="project-card-links">
+          <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <a href="../demos/music-visualizer.html" onclick="event.stopPropagation()">Live Demo</a>
+          <button class="decode-card-btn" data-card="2">Decode</button>
+        </div>
+      </div>
+
+      <!-- project-card 3 -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-card-category">JS Game</span>
+          <span class="project-card-status status-wip">In Progress</span>
+        </div>
+        <h2 id="card-title-3" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</h2>
+        <p id="card-desc-3" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</p>
+        <div class="project-card-tags">
+          <span>JavaScript</span>
+          <span>p5.js</span>
+        </div>
+        <div class="project-card-skills">
+          <h4>Skills Learned</h4>
+          <p>Platformer mechanics, sprite animation, tile maps, gravity simulation</p>
+        </div>
+        <div class="project-card-links">
+          <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <a href="../demos/mario-game.html" onclick="event.stopPropagation()">Live Demo</a>
+          <button class="decode-card-btn" data-card="3">Decode</button>
+        </div>
+      </div>
+
+      <!-- project-card 4 -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-card-category">Python</span>
+          <span class="project-card-status status-wip">In Progress</span>
+        </div>
+        <h2 id="card-title-4" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</h2>
+        <p id="card-desc-4" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</p>
+        <div class="project-card-tags">
+          <span>Python</span>
+          <span>NLP</span>
+        </div>
+        <div class="project-card-skills">
+          <h4>Skills Learned</h4>
+          <p>Natural language processing, chatbot architecture, Python APIs</p>
+        </div>
+        <div class="project-card-links">
+          <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <button class="decode-card-btn" data-card="4">Decode</button>
+          <span class="no-demo">Demo coming soon</span>
+          
+        </div>
+      </div>
+
+      <!-- project-card 5 -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-card-category">JS Design</span>
+          <span class="project-card-status status-wip">In Progress</span>
+        </div>
+        <h2 id="card-title-5" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</h2>
+        <p id="card-desc-5" class="scrambled">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</p>
+        <div class="project-card-tags">
+          <span>JavaScript</span>
+          <span>p5.js</span>
+          <span>ML5.js</span>
+          <span>Face Mesh</span>
+        </div>
+        <div class="project-card-skills">
+          <h4>Skills Learned</h4>
+          <p>Machine learning in the browser, facial landmark detection, real-time image processing</p>
+        </div>
+        <div class="project-card-links">
+          <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <a href="../demos/image-filters.html" onclick="event.stopPropagation()">Live Demo</a>
+          <button class="decode-card-btn" data-card="5">Decode</button>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer>
+    <p>Denzel Joshua Moffat · joshuadm132@gmail.com</p>
+  </footer>
+
+  <script src="../assets/GeneralScripts.js"></script>
+</body>
+</html>
