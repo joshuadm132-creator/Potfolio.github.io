@@ -108,3 +108,11 @@
     max-width: 100%; /* Responsive scaling */
     height: auto !important;
 }
+
+#p5-canvas-wrapper {
+    background: #000 url('https://media.tenor.com/WX_LDjYUrMsAAAAm/loading.webp') no-repeat center;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

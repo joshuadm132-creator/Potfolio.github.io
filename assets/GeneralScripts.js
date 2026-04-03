@@ -2,7 +2,6 @@ const linkData = [
     { id: 'scramble-text-1', text: 'Resume', url:'pages/Resume.html' },
     { id: 'scramble-text-2', text: 'About', url: 'pages/about.html' },
     { id: 'scramble-text-3', text: 'Projects', url: 'pages/projects.html' },
-
     { id: 'scramble-text-5', text: 'Skills', url: 'pages/skills.html' }
 ];
 
@@ -226,7 +225,8 @@ function loadDemo(projectUrl, title) {
         <iframe 
             src="${projectUrl}" 
             title="${title}"
-            style="width: 100%; height: 600px; border: 1px solid #1a1a2e; background: #000;"
+            style="width: 100%; height: 600px;border: none; overflow: hidden; background: #000;"
+            scrolling="no">
             allow="camera; microphone; display-capture" 
             loading="lazy">
         </iframe>`;
@@ -249,3 +249,19 @@ function closeDemo() {
         stage.style.display = 'none';
     }
 }
+
+
+  const bars = document.querySelectorAll('.skill-bar-fill');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        bar.style.width = bar.dataset.width + '%';
+        observer.unobserve(bar);
+      }
+    });
+
+  }, { threshold: 1 });
+
+  bars.forEach(bar => observer.observe(bar));

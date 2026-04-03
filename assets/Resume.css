@@ -1,24 +1,5 @@
 
-/* ── THEME VARIABLES ── */
-:root,[data-theme="dark"] {
-  --bg:        #0a0a0f;
-  --bg-surface: #111118;
-  --border:    #1a1a2e;
-  --text:      #e2e2f0;
-  --text-muted: #b4c0cd;
-  --accent:    #00f5c8;
-  --txtb: #e6e7f3;
-  /* ── LIGHT MODE ── */
 
-}[data-theme="light"] {
-  --bg:         #f5f5f0;
-  --bg-surface: #ebebeb;
-  --border:     #d0d0d0;
-  --text:       #111118;
-  --text-muted: #555;
-  --accent:     #008c72;
-   --txtb: #091b1b;
-}
 /* ── RESET ── */
 * {
   margin: 0;
@@ -35,53 +16,7 @@ body {
   line-height: 1.6;
 }
 
-/* ── NAV ── */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  border-bottom: 1px solid var(--border);
-}
 
-nav a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 1.15rem;
-  font-weight: bold;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav ul a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-nav ul a:hover {
-  color: var(--accent);
-}
-
-button {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  padding: 0.4rem 1rem;
-  font-family: monospace;
-  font-size: 0.78rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-button:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
 
 main {
   max-width: 860px;

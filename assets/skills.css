@@ -1,0 +1,136 @@
+/* ── SKILLS.CSS ── */
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+css/* ── SECTIONS ── */
+section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+section h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* ── TOOLS GRID ── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.5rem;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  
+}
+
+.tool-item img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
+}
+/* invert the image with the matching alt this case git. cool trick */
+.tool-item img[alt="GitHub"],.tool-item img[alt="SQL"] {
+  filter: invert(1);
+}
+
+[data-theme="light"] .tool-item img[alt="GitHub"],[data-theme="light"] .tool-item img[alt="SQL"] {
+  filter: invert(0);
+}
+
+.tool-item img:hover {
+  transform: translateY(-4px);
+}
+
+.tool-item span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── SKILL BARS ── */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.skill-bar {
+  height: 2px;
+  background: var(--border);
+  width: 100%;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 1.2s ease;
+}
+
+/* ── CURRENTLY LEARNING ── */
+.learning-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.learning-list span {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+
+.learning-list span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
