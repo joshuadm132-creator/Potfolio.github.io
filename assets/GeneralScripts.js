@@ -226,7 +226,6 @@ function loadDemo(projectUrl, title) {
             src="${projectUrl}" 
             title="${title}"
             style="width: 100%; height: 600px;border: none; overflow: hidden; background: #000;"
-            scrolling="no">
             allow="camera; microphone; display-capture" 
             loading="lazy">
         </iframe>`;
