@@ -1,0 +1,60 @@
+/* ── CYBER QUOTE BLOCKS ── */
+.myth-quote, .philosophy-quote {
+    background: rgba(0, 245, 200, 0.05); /* Very faint accent glow */
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem;
+    position: relative;
+    margin: 1rem 0;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    overflow: hidden;
+}
+
+/* The "Glow" effect behind the text */
+.myth-quote::after {
+    content: "SYSTEM_THOUGHT";
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 0.6rem;
+    color: var(--accent);
+    opacity: 0.3;
+    letter-spacing: 2px;
+}
+
+.myth-quote p {
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.4;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
+}
+
+.myth-quote span {
+    display: block;
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* ── HOVER INTERACTION ── */
+.myth-quote:hover {
+    background: rgba(0, 245, 200, 0.1);
+    box-shadow: 0 0 15px rgba(0, 245, 200, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Add this to your style.css */
+.myth-quote p, .myth-quote span {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.system-refresh {
+    animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
