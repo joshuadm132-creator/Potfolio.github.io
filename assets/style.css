@@ -170,7 +170,8 @@ button {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text-muted);
-  padding: 0.4rem 1rem;
+padding: 12px 30px;
+  margin-top: 2rem;
   font-family: monospace;
   font-size: 0.78rem;
   cursor: pointer;
@@ -415,7 +416,22 @@ footer a:hover {
 
 
 /*-------------------------------------portfolio CSS-----------------------------------------*/
+
+/* ── ENCODE CONTROLS ── */
+.encode-controls {
+  display: flex;
+  
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  
+}
+
 /* ── PROJECT CARDS ── */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -856,6 +872,20 @@ header .contact-block {
     height: 36px;
   }
 
+  img { max-width: 100%; height: auto; }
 
+  button { padding: 0.8rem 1.2rem; } /* bigger touch target */
 
+  .skills-main { padding: 2rem 1.2rem; }
+
+  .hero { padding: 6% 5%; }
+
+  .list span { font-size: 1rem; }
+}
+
+/* New tablet breakpoint */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

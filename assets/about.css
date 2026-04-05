@@ -58,3 +58,36 @@
     50% { opacity: 0.8; }
     100% { opacity: 1; }
 }
+
+/* ── LEAD LINE ── */
+
+.lead {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* ── BODY TEXT ── */
+
+.section-text p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 0.9rem;
+  max-width: 520px;
+}
+
+/* ── INSIGHT CALLOUT ── */
+
+.insight {
+  border-left: 2px solid var(--accent);
+  padding: 0.6rem 1rem;
+  margin: 1.2rem 0;
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.03em;
+  background: rgba(0, 245, 200, 0.04);
+}

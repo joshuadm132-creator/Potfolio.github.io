@@ -117,27 +117,23 @@
 }
 
 .demo-container {
-    /* 1. Force the div to be the width of the screen, not the 960px parent */
-    width: 100vw;
-    
-    /* 2. Center it back using relative positioning and calc */
+    /* Force the div to be the width of the screen, not the 960px parent */
+    width: 90vw;
     position: relative;
     left: 50%;
     right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-
-    /* 3. Aesthetic choices for the "Cyber" look */
+    margin-left: -45vw;
+    margin-right: -45vw;
     padding: 4rem 0;
     border-top: 1px solid var(--accent);
     border-bottom: 1px solid var(--accent);
-    background: #031415; /* Dark depth */
+    background: #031415; 
     overflow-x: hidden; /* Prevent horizontal scrollbars */
 }
 
 #p5-canvas-wrapper {
     width: 100%;
-    max-width: 1200px; /* Optional: cap the content inside the full-width bar */
+    max-width: 1200px; /* cap the content inside the full-width bar */
     margin: 0 auto;
 }
 

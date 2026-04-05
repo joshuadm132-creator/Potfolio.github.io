@@ -5,12 +5,84 @@ const linkData = [
     { id: 'scramble-text-5', text: 'Skills', url: 'pages/skills.html' }
 ];
 
+const cardData = {
+  1: {
+    title: 'Pool Table Game',
+    desc: 'A browser-based pool table game with realistic physics, ball collisions and table geometry.',
+    skills: 'Physics engines, collision detection, game loops, vector mathematics'
+  },
+  2: {
+    title: 'Music Visualizer',
+    desc: 'Upload any audio file and watch real-time visual graphs representing frequency, amplitude and rhythm.',
+    skills: 'Audio processing, FFT analysis, real-time data visualisation, file handling'
+  },
+  3: {
+    title: '2D Game',
+    desc: 'A Mario-inspired platformer built in the browser with custom level design and character movement.',
+    skills: 'Platformer mechanics, sprite animation, tile maps, gravity simulation'
+  },
+  4: {
+    title: 'Music ChatBot',
+    desc: 'A conversational AI assistant that answers questions about music theory, artists and recommendations.',
+    skills: 'Natural language processing, chatbot architecture, Python APIs'
+  },
+  5: {
+    title: 'AI Image Filters',
+    desc: 'Real-time face filters using AI vision and face mesh detection applied through the webcam.',
+    skills: 'Machine learning in the browser, facial landmark detection, real-time image processing'
+  }
+};
+
+const philosophyQuotes = [
+    { text: "One must imagine Sisyphus happy.", author: "Albert Camus", tag: "ABSURD_LOG" },
+    { text: "He who has a why to live for can bear almost any how.", author: "Nietzsche", tag: "MEANING_LOG" }, 
+    { text: "The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.", author: "Albert Camus", tag: "SYSTEM_RESILIENCE" },
+    { text: "In the midst of winter, I found there was, within me, an invincible summer.", author: "Albert Camus", tag: "INTERNAL_RESOURCES" },
+     { text: "It is not titles that honor men, but men that honor titles.", author: "Niccolò Machiavelli", tag: "INTEGRITY_CHECK" },
+    { text: "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.", author: "Marcus Aurelius", tag: "DATA_VALIDATION" }
+
+];
+
+const bibleQuotes = [
+    { text: "The light shines in the darkness, and the darkness has not overcome it.", author: "John 1:5", tag: "FAITH_LOG" },
+    { text: "Be strong and courageous. Do not be afraid; do not be discouraged.", author: "Joshua 1:9", tag: "STRENGTH_LOG" },
+     { text: "Two things I ask of you, LORD; do not refuse me before I die: Keep falsehood and lies far from me; give me neither poverty nor riches, but give me only my daily bread. Otherwise, I may have too much and disown you and say, 'Who is the LORD? ' Or I may become poor and steal, and so dishonor the name of my God.", author: "proverbs 30 vs 7-9", tag: "WISDOM_LOG" },
+    { text: "tells us, “What, then, shall we say in response to these things? If God is for us, who can be against us?", author: "Romans 8:31", tag: "STRENGTH_LOG" },
+     { text: "And now these three remain: faith, hope and love. But the greatest of these is love.", author: "1 Corinthians 13:13", tag: "LOVE_LOG" }
+];
+
+const mythologyQuotes = [
+    { 
+        text: "I do not rule a kingdom of evil, but a kingdom of truth. Here, the mask falls.", 
+        author: "On Hades", 
+        tag: "TRUTH_LOG" 
+    },
+    { 
+        text: "He is the just one, who with a firm hand holds the keys and judges the dead.", 
+        author: "Sophocles", 
+        tag: "JUSTICE_CORE" 
+    },
+    { 
+        text: "Men fear the dark, not for what it is, but for what they imagine it to be.", 
+        author: "Aidoneus", 
+        tag: "SUBVERSION_LOG" 
+    },
+    { 
+        text: "I would give up the sun and the stars to walk beside you in the silence.", 
+        author: "The Devotion of Hades", 
+        tag: "LOYALTY_VAL" 
+    }
+];
+
 const decodingMessages = ["Decoding In progress", "Decoding In progress.", "Decoding In progress..", "Decoding In progress...", "Decoded"];
 const chars = '!<>-_\\/[]{}—=+*^?#________';
-
-let clickCount = 0;
-
+let clickCount = 0; // ment for home page decoding
 console.log("Hieee I also do Cyber-Security, and web dev on the side")
+const ENCODE_INTERVAL = 70000; 
+let encodeIntervalId = null;  // stores the interval 
+let encodeEnabled = true;     // tracks if encoding is on or off
+let timeRemaining = ENCODE_INTERVAL / 1000; // countdown in seconds
+
 
 function descramble(elementId, finalText, onComplete) {
     const el = document.getElementById(elementId);
@@ -50,6 +122,101 @@ function descramble(elementId, finalText, onComplete) {
         }
     }
     animate();
+}
+
+// Fill scrambled elements with random chars on page load
+function initScramble() {
+  const targets = document.querySelectorAll('.scrambled');
+  if (targets.length === 0) return;
+
+  // ── Helper: scramble all cards and reset buttons ──
+  function runEncode() {
+    targets.forEach(el => {
+      const length = el.tagName === 'H2' ? 16 : 60;
+      let output = '';
+      for (let i = 0; i < length; i++) {
+        output += chars[Math.floor(Math.random() * chars.length)];
+      }
+      el.innerText = output;
+      el.classList.add('scrambled');
+
+      const card = el.closest('.project-card');
+      if (card) {
+        const btn = card.querySelector('.decode-card-btn');
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = 'Decode';
+        }
+      }
+    });
+
+    // Reset decode all button
+    const decodeAllBtn = document.getElementById('decode-all-btn');
+    if (decodeAllBtn) {
+      decodeAllBtn.disabled = false;
+      decodeAllBtn.innerText = 'Decode All Projects';
+    }
+
+    // Reset countdown
+    timeRemaining = ENCODE_INTERVAL / 1000;
+  }
+
+  // ── Initial scramble on load ──
+  runEncode();
+
+  // ── Start the encode interval ──
+  function startEncodeInterval() {
+    encodeIntervalId = setInterval(runEncode, ENCODE_INTERVAL);
+  }
+
+  // ── Countdown timer — updates every second ──
+  const timerCount = document.getElementById('timer-count');
+  const encodeTimer = document.getElementById('encode-timer');
+
+  if (timerCount) {
+    setInterval(() => {
+      if (!encodeEnabled) return; // paused — don't count down
+
+      timeRemaining--;
+      timerCount.innerText = timeRemaining;
+
+      if (timeRemaining <= 3) {
+        encodeTimer.style.color = 'var(--accent)'; // warn user it's about to encode
+      } else {
+        encodeTimer.style.color = 'var(--text-muted)';
+      }
+
+      if (timeRemaining <= 0) {
+        timeRemaining = ENCODE_INTERVAL / 1000; // reset
+      }
+    }, 1000);
+  }
+
+  // ── Disable / Enable toggle ──
+  const encodeToggle = document.getElementById('encode-toggle');
+  if (encodeToggle) {
+    startEncodeInterval(); // start running
+
+    encodeToggle.addEventListener('click', () => {
+      encodeEnabled = !encodeEnabled;
+
+      if (encodeEnabled) {
+        // Resume
+        startEncodeInterval();
+        encodeToggle.innerText = 'Disable Re-encoding';
+        if (encodeTimer) encodeTimer.style.display = 'inline';
+        timeRemaining = ENCODE_INTERVAL / 1000;
+      } else {
+        // Pause
+        clearInterval(encodeIntervalId);
+        encodeToggle.innerText = 'Enable Re-encoding';
+        if (encodeTimer) encodeTimer.style.display = 'none';
+      }
+    });
+  } else {
+    // No toggle button on this page — just start the interval normally
+    startEncodeInterval();
+  }
 }
 
 // Button Interaction
@@ -101,7 +268,7 @@ if (maindecodebtn) {
      maindecodebtn.innerText = "System Fully Decoded";
      decodeBtn.disabled = true;
      decodeBtn.innerText = "System Fully Decoded";
-      maindecodebtn.style.display = "none"
+     maindecodebtn.style.display = "none"
   });
 }
 
@@ -128,39 +295,16 @@ window.onload = () => {
   if (welcomeEl) {
     descramble('scramble-text-welcome', 'Denzel Joshua Moffat');
   }
+
+  // Init project card scramble on projects page
+  initScramble();
 };
 
 // portfolio code//
 
 // ── PROJECT CARD DECODE ──
 
-const cardData = {
-  1: {
-    title: 'Pool Table Game',
-    desc: 'A browser-based pool table game with realistic physics, ball collisions and table geometry.',
-    skills: 'Physics engines, collision detection, game loops, vector mathematics'
-  },
-  2: {
-    title: 'Music Visualizer',
-    desc: 'Upload any audio file and watch real-time visual graphs representing frequency, amplitude and rhythm.',
-    skills: 'Audio processing, FFT analysis, real-time data visualisation, file handling'
-  },
-  3: {
-    title: '2D Game',
-    desc: 'A Mario-inspired platformer built in the browser with custom level design and character movement.',
-    skills: 'Platformer mechanics, sprite animation, tile maps, gravity simulation'
-  },
-  4: {
-    title: 'Music ChatBot',
-    desc: 'A conversational AI assistant that answers questions about music theory, artists and recommendations.',
-    skills: 'Natural language processing, chatbot architecture, Python APIs'
-  },
-  5: {
-    title: 'AI Image Filters',
-    desc: 'Real-time face filters using AI vision and face mesh detection applied through the webcam.',
-    skills: 'Machine learning in the browser, facial landmark detection, real-time image processing'
-  }
-};
+
 
 function decodeCard(cardNumber, btn) {
   const data = cardData[cardNumber];
@@ -286,46 +430,6 @@ function QuoteRotateSystem(domElement, quoteArray) {
 }
 
 const mythBox = document.getElementsByClassName('myth-quote');
-const philosophyQuotes = [
-    { text: "One must imagine Sisyphus happy.", author: "Albert Camus", tag: "ABSURD_LOG" },
-    { text: "He who has a why to live for can bear almost any how.", author: "Nietzsche", tag: "MEANING_LOG" }, 
-    { text: "The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.", author: "Albert Camus", tag: "SYSTEM_RESILIENCE" },
-    { text: "In the midst of winter, I found there was, within me, an invincible summer.", author: "Albert Camus", tag: "INTERNAL_RESOURCES" },
-     { text: "It is not titles that honor men, but men that honor titles.", author: "Niccolò Machiavelli", tag: "INTEGRITY_CHECK" },
-    { text: "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.", author: "Marcus Aurelius", tag: "DATA_VALIDATION" }
-
-];
-
-const bibleQuotes = [
-    { text: "The light shines in the darkness, and the darkness has not overcome it.", author: "John 1:5", tag: "FAITH_LOG" },
-    { text: "Be strong and courageous. Do not be afraid; do not be discouraged.", author: "Joshua 1:9", tag: "STRENGTH_LOG" },
-     { text: "Two things I ask of you, LORD; do not refuse me before I die: Keep falsehood and lies far from me; give me neither poverty nor riches, but give me only my daily bread. Otherwise, I may have too much and disown you and say, 'Who is the LORD? ' Or I may become poor and steal, and so dishonor the name of my God.", author: "proverbs 30 vs 7-9", tag: "WISDOM_LOG" },
-    { text: "tells us, “What, then, shall we say in response to these things? If God is for us, who can be against us?", author: "Romans 8:31", tag: "STRENGTH_LOG" },
-     { text: "And now these three remain: faith, hope and love. But the greatest of these is love.", author: "1 Corinthians 13:13", tag: "LOVE_LOG" }
-];
-
-const mythologyQuotes = [
-    { 
-        text: "I do not rule a kingdom of evil, but a kingdom of truth. Here, the mask falls.", 
-        author: "On Hades", 
-        tag: "TRUTH_LOG" 
-    },
-    { 
-        text: "He is the just one, who with a firm hand holds the keys and judges the dead.", 
-        author: "Sophocles", 
-        tag: "JUSTICE_CORE" 
-    },
-    { 
-        text: "Men fear the dark, not for what it is, but for what they imagine it to be.", 
-        author: "Aidoneus", 
-        tag: "SUBVERSION_LOG" 
-    },
-    { 
-        text: "I would give up the sun and the stars to walk beside you in the silence.", 
-        author: "The Devotion of Hades", 
-        tag: "LOYALTY_VAL" 
-    }
-];
 
 // Start the 3-second cycles
 if (mythBox[1]) {

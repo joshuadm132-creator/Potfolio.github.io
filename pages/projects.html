@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Denzel Joshua Moffat</title>
    <link rel="stylesheet" href="..\/assets/style.css">
-
-  
 </head>
 <body>
 
@@ -29,9 +27,13 @@
       <div>
       <h1>Projects</h1>
       <p>A collection of games, visualisations, and experiments.</p>
+      <span id="encode-timer">Re-encoding in <strong id="timer-count"></strong>s</span>
     </div>
-
-      <button id="decode-all-btn">Decode All Projects</button>
+      <div class="encode-controls">
+        <button id="encode-toggle">Disable Re-encoding</button>
+        <button id="decode-all-btn">Decode All Projects</button>
+      </div>
+      
     </header>
 
     <!-- PROJECT GRID -->
@@ -61,6 +63,9 @@
             Live Demo
           </a>
           <button class="decode-card-btn" data-card="1">Decode</button>
+            <div class = " decodLoad">
+                <p id = "decoding-progress">Not Decoded</p>
+             </div>
         </div>
       </div>
 
@@ -88,6 +93,9 @@
             Live Demo
           </a>
           <button class="decode-card-btn" data-card="2">Decode</button>
+            <div class = " decodLoad">
+                <p id = "decoding-progress">Not Decoded</p>
+             </div>
         </div>
       </div>
 
@@ -110,8 +118,12 @@
         <div class="project-card-links">
           <!-- <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a>
           <a href="../demos/mario-game.html" onclick="event.stopPropagation()">Live Demo</a> -->
-          <span class="no-demo">Demo coming soon</span>
+         
           <button class="decode-card-btn" data-card="3">Decode</button>
+           <span class="no-demo">Demo coming soon</span>
+            <div class = " decodLoad">
+                <p id = "decoding-progress">Not Decoded</p>
+             </div>
         </div>
       </div>
 
@@ -135,6 +147,9 @@
           <!-- <a href="#" target="_blank" onclick="event.stopPropagation()">GitHub</a> -->
           <button class="decode-card-btn" data-card="4">Decode</button>
           <span class="no-demo">Demo coming soon</span>
+            <div class = " decodLoad">
+                <p id = "decoding-progress">Not Decoded</p>
+             </div>
           
         </div>
       </div>
@@ -164,6 +179,9 @@
             Live Demo
           </a>
           <button class="decode-card-btn" data-card="5">Decode</button>
+            <div class = " decodLoad">
+              <p id = "decoding-progress">Not Decoded</p>
+            </div>
         </div>
       </div>
     </div>
@@ -172,7 +190,7 @@
           <h3 id="demo-title" class="highlight_blue">Project Preview</h3>
           <div id="p5-canvas-wrapper">
               </div>
-          <button class ="End Button" onclick="closeDemo()">Close Preview</button>
+          <button class ="close-btn" onclick="closeDemo()">Close Preview</button>
           <h4>Currently Not Mobile Optimised</h4>
       </section>
      
