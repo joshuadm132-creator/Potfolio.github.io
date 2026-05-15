@@ -9,6 +9,7 @@
   --accentb:#00f5c8;
   --txtb: #e6e7f3;
   --quote:rgba(0, 245, 200, 0.05);
+  --pry:#FFF
   /* ── LIGHT MODE ── */
 
 }[data-theme="light"] {
@@ -19,8 +20,9 @@
   --text-muted: #555;
   --accent:     #008c72;
   --accentb:#093b32;
-   --txtb: #091b1b;
-   --quote:rgba(2, 9, 35, 0.05);
+  --txtb: #091b1b;
+  --pry: #111118;
+  --quote:rgba(2, 9, 35, 0.05);
 }
 * {
   margin: 0;
@@ -534,8 +536,8 @@ footer a:hover {
     position: relative;
     left: 50%;
     right: 50%;
-    margin-left: -45vw;
-    margin-right: -45vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
     padding: 4rem 0;
     border-top: 1px solid var(--accent);
     border-bottom: 1px solid var(--accent);
@@ -654,6 +656,20 @@ footer a:hover {
   background: rgba(0, 245, 200, 0.04);
 }
 
+.prayer{
+  padding: 0.6rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-surface) ;
+   border-left: 2px solid #dae59c;
+
+}
+.prayer p{
+
+  color: var(--pry);
+  font-size: 0.9rem;
+
+}
+
 /*  -----------------------------------------------------SKILLS CSS--------------------------------------------------    */
 /* ── TOOLS GRID ── */
 
@@ -754,6 +770,10 @@ footer a:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+.demo-iframe {
+    height: 600px; /* Default for desktop */
+}
 /* New tablet breakpoint */
 @media (max-width: 768px) {
   .projects-grid {
@@ -810,11 +830,23 @@ footer a:hover {
         border-left: none;
         border-right: none;
     }
-    
-.demo-container {
-        padding: 1rem 0; /* Remove side padding for full-bleed look */
+    .demo-iframe {
+        height: 450px; /* Shorter for mobile screens */
         width: 100vw;
-        margin-left: calc(-50vw + 50%);
+    }
+.demo-container {
+       width: 100vw;
+        position: relative;
+        
+        /* This pulls the element back to the absolute left edge */
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        
+        /* Ensure no internal padding is fighting the width */
+        padding: 2rem 0; 
+        box-sizing: border-box;
     }
 .close-btn {
     position: sticky;

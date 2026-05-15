@@ -1,0 +1,65 @@
+{
+  "navLinks": [
+    { "id": "scramble-text-1", "text": "Resume",   "url": "pages/Resume.html" },
+    { "id": "scramble-text-2", "text": "About",    "url": "pages/about.html" },
+    { "id": "scramble-text-3", "text": "Projects", "url": "pages/projects.html" },
+    { "id": "scramble-text-5", "text": "Skills",   "url": "pages/skills.html" }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "Pool Table Game",
+      "desc": "A browser-based pool table game with realistic physics, ball collisions and table geometry.",
+      "skills": "Physics engines, collision detection, game loops, vector mathematics"
+    },
+    {
+      "id": 2,
+      "title": "Music Visualizer",
+      "desc": "Upload any audio file and watch real-time visual graphs representing frequency, amplitude and rhythm.",
+      "skills": "Audio processing, FFT analysis, real-time data visualisation, file handling"
+    },
+    {
+      "id": 3,
+      "title": "2D Game",
+      "desc": "A Mario-inspired platformer built in the browser with custom level design and character movement.",
+      "skills": "Platformer mechanics, sprite animation, tile maps, gravity simulation"
+    },
+    {
+      "id": 4,
+      "title": "Music ChatBot",
+      "desc": "A conversational AI assistant that answers questions about music theory, artists and recommendations.",
+      "skills": "Natural language processing, chatbot architecture, Python APIs"
+    },
+    {
+      "id": 5,
+      "title": "AI Image Filters",
+      "desc": "Real-time face filters using AI vision and face mesh detection applied through the webcam.",
+      "skills": "Machine learning in the browser, facial landmark detection, real-time image processing"
+    }
+  ],
+
+  "quotes": {
+    "philosophy": [
+      { "text": "One must imagine Sisyphus happy.", "author": "Albert Camus", "tag": "ABSURD_LOG" },
+      { "text": "He who has a why to live for can bear almost any how.", "author": "Nietzsche", "tag": "MEANING_LOG" },
+      { "text": "The struggle itself toward the heights is enough to fill a man's heart.", "author": "Albert Camus", "tag": "SYSTEM_RESILIENCE" },
+      { "text": "In the midst of winter, I found there was, within me, an invincible summer.", "author": "Albert Camus", "tag": "INTERNAL_RESOURCES" },
+      { "text": "It is not titles that honor men, but men that honor titles.", "author": "Niccolò Machiavelli", "tag": "INTEGRITY_CHECK" },
+      { "text": "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.", "author": "Marcus Aurelius", "tag": "DATA_VALIDATION" }
+    ],
+    "bible": [
+      { "text": "The light shines in the darkness, and the darkness has not overcome it.", "author": "John 1:5", "tag": "FAITH_LOG" },
+      { "text": "Be strong and courageous. Do not be afraid; do not be discouraged.", "author": "Joshua 1:9", "tag": "STRENGTH_LOG" },
+      { "text": "Two things I ask of you LORD; do not refuse me before I die: Keep falsehood and lies far from me; give me neither poverty nor riches, but give me only my daily bread.", "author": "Proverbs 30:7-9", "tag": "WISDOM_LOG" },
+      { "text": "If God is for us, who can be against us?", "author": "Romans 8:31", "tag": "STRENGTH_LOG" },
+      { "text": "And now these three remain: faith, hope and love. But the greatest of these is love.", "author": "1 Corinthians 13:13", "tag": "LOVE_LOG" }
+    ],
+    "mythology": [
+      { "text": "I do not rule a kingdom of evil, but a kingdom of truth. Here, the mask falls.", "author": "On Hades", "tag": "TRUTH_LOG" },
+      { "text": "He is the just one, who with a firm hand holds the keys and judges the dead.", "author": "Sophocles", "tag": "JUSTICE_CORE" },
+      { "text": "Men fear the dark, not for what it is, but for what they imagine it to be.", "author": "Aidoneus", "tag": "SUBVERSION_LOG" },
+      { "text": "I would give up the sun and the stars to walk beside you in the silence.", "author": "The Devotion of Hades", "tag": "LOYALTY_VAL" }
+    ]
+  }
+}
