@@ -63,7 +63,7 @@ section h2 {
   transition: transform 0.2s ease;
 }
 /* invert the image with the matching alt this case git. cool trick */
-.tool-item img[alt="GitHub"],.tool-item img[alt="SQL"] {
+.tool-item img[alt="GitHub"],.tool-item img[alt="SQL"],.tool-item img[alt="Nextjs"] {
   filter: invert(1);
 }
 

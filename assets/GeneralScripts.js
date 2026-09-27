@@ -275,15 +275,24 @@ if (maindecodebtn) {
 
 
 const toggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme');
+// Apply saved theme
+if (savedTheme === 'light') {
+  html.setAttribute('data-theme', 'light');
+}
+
 if (toggle) {
   toggle.addEventListener('click', () => {
-    const html = document.documentElement;
 
     if (html.getAttribute('data-theme') === 'light') {
       html.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
       toggle.innerText = 'Light Mode';
     } else {
       html.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
       toggle.innerText = 'Dark Mode';
     }
   });

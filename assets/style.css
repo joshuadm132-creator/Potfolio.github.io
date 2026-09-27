@@ -23,7 +23,21 @@
   --txtb: #091b1b;
   --pry: #111118;
   --quote:rgba(2, 9, 35, 0.05);
+}[data-THEMEMain= "dark"]{
+  --bg:        #0a0a0f;
+  --bg-surface: #111118;
+  --border:    #1a1a2e;
+  --text:      #e2e2f0;
+  --text-muted: #b4c0cd;
+  --accent:    #00f5c8;
+  --accentb:#00f5c8;
+  --txtb: #e6e7f3;
+  --quote:rgba(0, 245, 200, 0.05);
+  --pry:#FFF
+
 }
+
+
 * {
   margin: 0;
   padding: 0;
@@ -699,11 +713,11 @@ footer a:hover {
   transition: transform 0.2s ease;
 }
 /* invert the image with the matching alt this case git. cool trick */
-.tool-item img[alt="GitHub"],.tool-item img[alt="SQL"] {
+.tool-item img[alt="GitHub"],.tool-item img[alt="SQL"],.tool-item img[alt="Nextjs"],.tool-item img[alt="tensorflow"] {
   filter: invert(1);
 }
 
-[data-theme="light"] .tool-item img[alt="GitHub"],[data-theme="light"] .tool-item img[alt="SQL"] {
+[data-theme="light"] .tool-item img[alt="GitHub"],[data-theme="light"] .tool-item img[alt="SQL"],[data-theme="light"] .tool-item img[alt="Nextjs"],[data-theme="light"] .tool-item img[alt="tensorflow"] {
   filter: invert(0);
 }
 
